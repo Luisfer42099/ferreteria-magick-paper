@@ -1,0 +1,122 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    float: none;
+}
+body{
+    color: #404E67;
+    background: #F5F7FA;
+    font-family: 'Open Sans', sans-serif;
+}
+nav.nav{
+    width: 100%;
+
+}
+.normal{
+    background-color: #27C46B;
+    color: #27C46B;
+}
+.poco{
+    background-color: #f50000;
+    color: #f50000;
+}
+nav.nav div.nav-borde{
+    border: 1px solid #0400ff;
+    border-radius: 10%;
+}
+nav.nav a.nav-link{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+nav.nav a.nav-link:hover{
+    color: #fff;
+    background-color: blue;
+}
+nav.nav div.logo{
+    padding: 0px 20px;
+    text-decoration: none;
+}
+.table-wrapper {
+	width: 100%;
+    background: #fff;
+    padding: 60px;	
+    box-shadow: 0 1px 1px rgba(0,0,0,.09);
+}
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+    .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 22px;
+    }
+    .table-title .add-new {
+        float: right;
+		height: 30px;
+		font-weight: bold;
+		font-size: 12px;
+		text-shadow: none;
+		min-width: 100px;
+		border-radius: 50px;
+		line-height: 13px;
+        color: #fff;
+    }
+	.table-title .add-new i {
+		margin-right: 14px;
+	}
+    table.table {
+        table-layout: fixed;
+    }
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    }
+    table.table th i {
+        font-size: 33px;
+        margin: 0 9px;
+        cursor: pointer;
+    }
+    table.table th:last-child {
+        width: 100px;
+    }
+    table.table td a {
+		cursor: pointer;
+        display: inline-block;
+        margin: 0 9px;
+		min-width: 54px;
+    }    
+	table.table td a.add {
+        color: #27C46B;
+    }
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #E34724;
+    }
+    table.table td i {
+        font-size: 29px;
+    }
+	table.table td a.add i {
+        font-size: 34px;
+    	margin-right: -20px;
+        position: relative;
+        top: 3px;
+    }    
+    table.table .form-control {
+        height: 52px;
+        line-height: 52px;
+        box-shadow: none;
+        border-radius: 2px;
+    }
+	table.table .form-control.error {
+		border-color: #f50000;
+	}
+	table.table td .add {
+		display: none;
+	}
+
+footer{
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 12px 0px;
+}
