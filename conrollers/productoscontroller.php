@@ -1,7 +1,32 @@
 <?php
 	require_once '../conexion/database.php';
     class Producto{
-		protected $con;
+		protected $con, $ciudad, $pais, $nav, $ip;
+
+		public function getPais(){
+            return $this->pais;
+        }
+        public function getCiudad(){
+            return $this->ciudad;
+        }
+        public function getNav(){
+            return $this->nav;
+        }
+        public function getIp(){
+            return $this->ip;
+        }
+        public function setPais($pais){
+            $this->pais = $pais;
+        }
+        public function setCiudad($ciu){
+            $this->ciudad = $ciu;
+        }
+        public function setNav($nav){
+            $this->nav = $nav;
+        }
+        public function setIp($ip){
+            $this->ip = $ip;
+        }
         public function __construct()
 		{
 			$this->con = Database::connect();
@@ -88,5 +113,13 @@
 			$res = mysqli_query($this->con, $sql);
 			return $res;
 		}
+		public function insertvisitante(){
+            $sql = "INSERT INTO visitas_control (id, pais, ciudad, navegador, ip) VALUES (null,'{$this->getPais()}','{$this->getCiudad()}', '{$this->getNav()}', '{$this->getIp()}')";
+            $res = mysqli_query($this->con, $sql);
+			if($res){
+				return true;
+			}else{
+				return false;
+			}
+        }
     }
-?>

@@ -1,14 +1,33 @@
-<?php require_once 'header.php'; ?>
-<?php
+<?php require_once 'header.php';
+
+require_once '../geoplugin.class/geoplugin.class.php';
+require_once '../conrollers/productoscontroller.php';
+
+$estu = new Producto();
+$listado = $estu->read();
+
 session_start();
 
+$geoplugin = new geoPlugin();
+$geoplugin->locate();
+
+$cont = 0;
+if ($cont == 0) {
+
+    $estu->setIp($geoplugin->ip);
+    $estu->setPais($geoplugin->countryName);
+    $estu->setCiudad($geoplugin->timezone);
+    $estu->setNav(getenv("HTTP_USER_AGENT"));
+    $activa = $estu->insertvisitante();
+    $cont +1;
+}else {
+
+}
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../index.php');
 } else {
-    /*if((time() - $_SESSION['user_id']) > 10){
-        header('Location: ../login/cerrarsession.php');
-    }*/
 }
+
 ?>
 
 <div class="container">
@@ -60,11 +79,7 @@ if (!isset($_SESSION['user_id'])) {
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <?php
-            require_once '../conrollers/productoscontroller.php';
-            $estu = new Producto();
-            $listado = $estu->read();
-            ?>
+
             <tbody>
                 <?php
                 while ($row = mysqli_fetch_object($listado)) {
@@ -82,11 +97,11 @@ if (!isset($_SESSION['user_id'])) {
                         <td><?php echo $fecha; ?></td>
                         <td><?php echo $Nombre; ?></td>
                         <td><?php echo $descripcion; ?></td>
-                        <?php if($stock > 10):?>
+                        <?php if ($stock > 10) : ?>
                             <td class="normal"><?php echo $stock; ?></td>
-                        <?php  else: ?>
+                        <?php else : ?>
                             <td class="poco"><?php echo $stock; ?></td>
-                        <?php endif;?>
+                        <?php endif; ?>
                         <td><?php echo $ubi; ?></td>
                         <td><?php echo $val_uni; ?></td>
                         <td><?php echo $val_vent; ?></td>

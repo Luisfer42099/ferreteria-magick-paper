@@ -2,6 +2,8 @@
     require_once '../conexion/database.php';
     class Usuarios{
         protected $con;
+
+        
         public function __construct()
 		{
 			$this->con = Database::connect();
@@ -12,7 +14,7 @@
 			if($res){
 				return true;
 			}else{
-				return mysqli_error($this->con);
+				return false;
 			}
         }
     }
